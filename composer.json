@@ -1,0 +1,13 @@
+{
+    "name": "temuch/parser",
+    "authors": [
+        {
+            "name": "Artem",
+            "email": "porubenko99@mail.ru"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"App\\": "src/"}
+    },
+    "require": {}
+}

@@ -1,0 +1,5 @@
+#Ignore local tmp files
+/tmp/*
+!/tmp/.keep
+
+.php-cs-fixer.cache
