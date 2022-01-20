@@ -25,7 +25,7 @@ class RegularExpressions
      */
     public static function accessLog(): string
     {
-        return '/[0-9.\s-]+\[.+\]\s\"[A-Z]{3,6}\s(?<url>[^\"]+)\s[^\"]+\"\s(?<status>[0-9]+)\s(?<size>[0-9]+)\s\"[^\"]+\"\s\"(?<client>.+)\"/';
+        return '/[0-9.\s-]+\[.+\]\s\"([A-Z]{3,6}\s(?<url>[^\"]+)\s[^\"]+|-)\"\s(?<status>[0-9]+)\s(?<size>[0-9]+)\s\"[^\"]+\"\s\"(?<client>.+)\"/';
     }
 
     /**

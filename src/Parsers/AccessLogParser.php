@@ -64,10 +64,12 @@ class AccessLogParser implements Parser
         while ($line = fgets($handle)) {
             $matches = $this->parseLine($line);
 
-            $this->urls[$matches['url']] = array_key_exists($matches['url'], $this->urls)
-                ? $this->urls[$matches['url']] + 1
-                : 1
-            ;
+            if (array_key_exists('url', $matches)) {
+                $this->urls[$matches['url']] = array_key_exists($matches['url'], $this->urls)
+                    ? $this->urls[$matches['url']] + 1
+                    : 1
+                ;
+            }
 
             $this->statuses[$matches['status']] = array_key_exists($matches['status'], $this->statuses)
                 ? $this->statuses[$matches['status']] + 1
@@ -102,7 +104,7 @@ class AccessLogParser implements Parser
 
         preg_match(RegularExpressions::accessLog(), $line, $matches);
 
-        $keys = ['size', 'status', 'url', 'client'];
+        $keys = ['size', 'status', 'client'];
         foreach ($keys as $key) {
             if (!array_key_exists($key, $matches)) {
                 throw new InvalidFormatException();
