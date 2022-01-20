@@ -13,13 +13,13 @@ class Messages
         $message .= "USAGE: php parser.php [OPTIONS]\n\n";
         $message .= "OPTIONS:\n";
         $message .= "\t--help   \tprint this information message\n";
-        $message .= "\t--name   \tinput object (file path, url...)\n";
-        $message .= "\t--output \toutput file path (optional parameter)\n\n";
+        $message .= "\t--name   \tinput object (file path, ip-address...) (required)\n";
+        $message .= "\t--format \toutput format type (json, ser...) (required)\n";
+        $message .= "\t--type   \ttype of giving object (access...) (required)\n\n";
         $message .= "Examples:\n";
-        $message .= "\tphp parser.php --help                                print help message\n";
-        $message .= "\tphp parser.php --name=<path/to/file>                 parse access_log file by path and print summary information in JSON format\n";
-        $message .= "\tphp parser.php --name=<ip or url>                    parse access_log file by ip or url and print summary information in JSON format\n";
-        $message .= "\tphp parser.php --name=<path/to/file> --output=<path> parse access_log file and print summary in output file\n";
+        $message .= "\tphp parser.php --help                                            \tprint help message\n";
+        $message .= "\tphp parser.php --name=<path/to/file> --format=json --type=access \tparse access_log file by path and print summary information in JSON format\n";
+        $message .= "\tphp parser.php --name=<ip> --format=ser --type=access            \tparse access_log file by ip or url and print summary information in serialize format\n";
 
         return $message;
     }
