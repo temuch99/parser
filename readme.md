@@ -30,19 +30,35 @@
 <br/>
 `php parser.php --help`
 <br/>
-![help](doc/help.png)
-<br/>
 Вывод информации о файле `../access_log` в формате JSON:
 <br/>
 `php parser.php --name=../access_log --type=access --format=json`
 <br/>
-![JSON](doc/json.png)
+```
+{
+    "views": 18,
+    "urls": 5,
+    "traffic": 140648,
+    "crawlers": {
+        "Google": 2,
+        "Bing": 0,
+        "Baidu": 0,
+        "Yandex": 0
+    },
+    "statusCodes": {
+        "400": 8,
+        "200": 10
+    }
+}
+```
 <br/>
 Вывод информации о файле `access_log`, который находится по адресу `127.0.0.1/access_log`, в сериализованном формате PHP:
 <br/>
 `php parser.php --name=127.0.0.1/access_log --type=access --format=ser`
 <br/>
-![HTTP](doc/http.png)
+```
+a:5:{s:5:"views";i:18;s:4:"urls";i:5;s:7:"traffic";i:140648;s:8:"crawlers";a:4:{s:6:"Google";i:2;s:4:"Bing";i:0;s:5:"Baidu";i:0;s:6:"Yandex";i:0;}s:11:"statusCodes";a:2:{i:400;i:8;i:200;i:10;}}
+```
 <br/>
 
 ## Как расширить данный скрипт
